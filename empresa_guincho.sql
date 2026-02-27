@@ -1,15 +1,10 @@
 
--- ============================================
--- Banco de Dados: Empresa de Guincho
--- SGBD: MySQL
--- ============================================
+
 
 CREATE DATABASE IF NOT EXISTS empresa_guincho;
 USE empresa_guincho;
 
--- ============================================
--- TABELA CLIENTE
--- ============================================
+
 CREATE TABLE cliente (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -18,9 +13,7 @@ CREATE TABLE cliente (
     endereco VARCHAR(150)
 );
 
--- ============================================
--- TABELA VEICULO
--- ============================================
+
 CREATE TABLE veiculo (
     id_veiculo INT AUTO_INCREMENT PRIMARY KEY,
     placa VARCHAR(10) NOT NULL UNIQUE,
@@ -34,9 +27,7 @@ CREATE TABLE veiculo (
         ON UPDATE CASCADE
 );
 
--- ============================================
--- TABELA MOTORISTA
--- ============================================
+
 CREATE TABLE motorista (
     id_motorista INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -44,9 +35,7 @@ CREATE TABLE motorista (
     telefone VARCHAR(20)
 );
 
--- ============================================
--- TABELA ATENDIMENTO
--- ============================================
+
 CREATE TABLE atendimento (
     id_atendimento INT AUTO_INCREMENT PRIMARY KEY,
     data_atendimento DATETIME NOT NULL,
@@ -73,13 +62,10 @@ CREATE TABLE atendimento (
         ON UPDATE CASCADE
 );
 
--- Índice para relatórios por data
+
 CREATE INDEX idx_data_atendimento
 ON atendimento(data_atendimento);
 
--- ============================================
--- TABELA PAGAMENTO
--- ============================================
 CREATE TABLE pagamento (
     id_pagamento INT AUTO_INCREMENT PRIMARY KEY,
     forma_pagamento ENUM('Dinheiro','Pix','Cartao','Transferencia') NOT NULL,
